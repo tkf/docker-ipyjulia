@@ -1,14 +1,16 @@
-FROM julia
+FROM python
 COPY . /tmp/scripts
 
-RUN apt-get update && apt-get install -qq \
-    git \
-    python3-pip
-RUN pip3 install -r /tmp/scripts/requirements.txt
+RUN pip install -r /tmp/scripts/requirements.txt
 
 RUN useradd -m -s /bin/bash julia
 USER julia
-ENV PYTHON /usr/bin/python3
+
+# Install julia at /home/julia/julia
+RUN /tmp/scripts/install-julia
+ENV PATH "/home/julia/julia/bin:$PATH"
+
+ENV PYTHON /usr/local/bin/python
 RUN julia --color=yes /tmp/scripts/install.jl
 
 ENTRYPOINT ipython

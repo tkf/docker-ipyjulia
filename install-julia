@@ -1,0 +1,18 @@
+#!/bin/bash
+
+URL="https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.0-linux-x86_64.tar.gz"
+SHAFILE="julia-1.0.0.sha256"
+WORKDIR="/tmp/install-julia"
+
+FILENAME="$(basename "${URL}")"
+THISDIR="$(dirname "${BASH_SOURCE[0]}")"
+set -ex
+
+mkdir -v "${WORKDIR}"
+cd "${WORKDIR}"
+wget "$URL"
+sha256sum --check <(grep -F "${FILENAME}" "${THISDIR}/${SHAFILE}")
+
+cd ~/
+tar xf "${WORKDIR}/${FILENAME}"
+ln -T -s julia-*/ julia
