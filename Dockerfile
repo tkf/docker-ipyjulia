@@ -13,4 +13,4 @@ ENV PATH "/home/julia/julia/bin:$PATH"
 ENV PYTHON /usr/local/bin/python
 RUN julia --color=yes /tmp/scripts/install.jl
 
-ENTRYPOINT ipython
+CMD ["ipython"]
