@@ -1,0 +1,11 @@
+# A commit from my jl10 branch:
+-e git://github.com/tkf/pyjulia@33f62a62a526ca20d577dfd4ae9c6f42f6062c1a#egg=julia
+# TODO: use official master:
+# -e git://github.com/JuliaPy/pyjulia#egg=julia
+
+# IPython 7.0 is required for using pyjulia without segfault during
+# tab completion.  It is currently in development:
+# https://github.com/ipython/ipython/milestone/43
+-e git://github.com/ipython/ipython#egg=ipython
+
+numpy
