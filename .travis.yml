@@ -8,3 +8,6 @@ services:
 script:
   - docker image build -t ipyjuliatag .
   - docker run --rm -it ipyjuliatag python -c 'from julia import Main; Main.eval("@show VERSION")'
+
+notifications:
+  email: false
