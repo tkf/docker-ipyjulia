@@ -1,7 +1,4 @@
-# A commit from my jl10 branch:
-git+git://github.com/tkf/pyjulia@33f62a62a526ca20d577dfd4ae9c6f42f6062c1a#egg=julia
-# TODO: use official master:
-# git+git://github.com/JuliaPy/pyjulia#egg=julia
+git+git://github.com/JuliaPy/pyjulia#egg=julia
 
 # IPython 7.0 is required for using pyjulia without segfault during
 # tab completion.  It is currently in development:
